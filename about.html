@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="About Ann's Nails Salon — years of experience, passionate nail technicians, Upper Marlboro MD.">
+  <title>About Us — Ann's Nails Salon</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="translations.js" defer></script>
+  <style>
+    .page-hero-dark {
+      padding: 160px 0 80px;
+      background: var(--text);
+      text-align: center;
+    }
+    .page-hero-dark .section-label { color: var(--gold); }
+    .page-hero-dark h1 { font-size: clamp(40px, 5vw, 64px); color: var(--bg); margin-bottom: 16px; }
+    .page-hero-dark p { color: rgba(250,250,247,0.6); font-size: 16px; max-width: 520px; margin: 0 auto; }
+
+    .about-story { padding: 100px 0; }
+
+    .story-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 80px;
+      align-items: center;
+      margin-bottom: 80px;
+    }
+
+    .story-image {
+      border-radius: 16px;
+      overflow: hidden;
+      aspect-ratio: 4/5;
+    }
+    .story-image img { width: 100%; height: 100%; object-fit: cover; }
+
+    .story-content h2 {
+      font-size: clamp(30px, 3.5vw, 44px);
+      margin-bottom: 24px;
+    }
+
+    .story-content p {
+      color: var(--muted);
+      line-height: 1.85;
+      margin-bottom: 18px;
+      font-size: 15px;
+    }
+
+    .story-content blockquote {
+      border-left: 3px solid var(--gold);
+      padding-left: 20px;
+      margin: 32px 0;
+      font-family: 'Playfair Display', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* Stats bar */
+    .stats-bar {
+      background: #f3f0ea;
+      padding: 60px 0;
+    }
+
+    .stats-row {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 0;
+      text-align: center;
+    }
+
+    .stat-item {
+      padding: 32px 24px;
+      border-right: 1px solid var(--border);
+    }
+    .stat-item:last-child { border-right: none; }
+
+    .stat-item .stat-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 48px;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 8px;
+    }
+
+    .stat-item .stat-label {
+      font-size: 12px;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      color: var(--muted);
+    }
+
+    /* Values */
+    .values-section { padding: 100px 0; }
+
+    .values-section h2 {
+      font-size: clamp(32px, 4vw, 44px);
+      margin-bottom: 56px;
+      text-align: center;
+    }
+
+    .values-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+
+    .value-card {
+      padding: 40px 32px;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .value-card:hover {
+      border-color: var(--gold);
+      box-shadow: 0 4px 24px rgba(184,151,90,0.1);
+    }
+
+    .value-icon { font-size: 32px; margin-bottom: 16px; }
+
+    .value-card h3 {
+      font-size: 20px;
+      margin-bottom: 12px;
+    }
+
+    .value-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    @media (max-width: 900px) {
+      .story-grid { grid-template-columns: 1fr; gap: 40px; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+      .stat-item:nth-child(2) { border-right: none; }
+      .stat-item:nth-child(3), .stat-item:nth-child(4) { border-top: 1px solid var(--border); }
+      .values-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 600px) {
+      .values-grid { grid-template-columns: 1fr; }
+      .stats-row { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Ann's Nails</a>
+    <ul class="nav-links">
+      <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+      <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+      <li><a href="about.html" style="color:var(--text);" data-i18n="nav.about">About</a></li>
+      <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      <li class="mobile-call"><a href="tel:+13014990940">📞 (301) 499-0940</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="vi">VI</button>
+    </div>
+    <a href="tel:+13014990940" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      Call to Book
+    </a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page-hero-dark">
+  <div class="container">
+    <p class="section-label" data-i18n="ap.label">Our Story</p>
+    <h1 data-i18n="ap.h1">About Ann's Nails</h1>
+    <p data-i18n="ap.sub">A passion for beauty, a commitment to quality, and a community we're proud to serve.</p>
+  </div>
+</div>
+
+<!-- Story -->
+<div class="about-story">
+  <div class="container">
+    <div class="story-grid">
+      <div class="story-image">
+        <img src="images/nail-3.png" alt="Ann's Nails Salon work">
+      </div>
+      <div class="story-content">
+        <p class="section-label" data-i18n="ap.story.label">Where It All Began</p>
+        <h2 data-i18n="ap.story.h2">Built on Skill, <br>Driven by Passion</h2>
+        <p data-i18n="ap.story.p1">
+          Ann's Nails Salon was born out of a simple belief: everyone deserves to feel confident and beautiful. What started as a small studio in Upper Marlboro has grown into a trusted destination for clients across Maryland.
+        </p>
+        <blockquote data-i18n="ap.story.quote">
+          "We don't just do nails — we create experiences that make our clients feel their absolute best."
+        </blockquote>
+        <p data-i18n="ap.story.p2">
+          Over the years, our team has honed their craft through continuous training and a genuine love for nail artistry. From classic manicures to intricate nail art, every service is delivered with attention to detail and care for our clients.
+        </p>
+        <a href="contact.html" class="btn btn-primary" style="margin-top: 12px;" data-i18n="ap.story.cta">Visit Us Today →</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Stats -->
+<div class="stats-bar">
+  <div class="container">
+    <div class="stats-row">
+      <div class="stat-item">
+        <div class="stat-number">10+</div>
+        <div class="stat-label" data-i18n="ap.s1l">Years in Business</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">5k+</div>
+        <div class="stat-label" data-i18n="ap.s2l">Happy Clients</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">20+</div>
+        <div class="stat-label" data-i18n="ap.s3l">Services Offered</div>
+      </div>
+      <div class="stat-item">
+        <div class="stat-number">100%</div>
+        <div class="stat-label" data-i18n="ap.s4l">Passion for the Craft</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Values -->
+<div class="values-section">
+  <div class="container">
+    <p class="section-label" style="text-align:center;" data-i18n="ap.val.label">What We Stand For</p>
+    <h2 data-i18n="ap.val.h2">Our Values</h2>
+    <div class="values-grid">
+      <div class="value-card">
+        <div class="value-icon">✨</div>
+        <h3 data-i18n="ap.v1.h3">Quality First</h3>
+        <p data-i18n="ap.v1.p">We use only premium products and take the time needed to get every detail right — no rushing, no shortcuts.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🤝</div>
+        <h3 data-i18n="ap.v2.h3">Personal Service</h3>
+        <p data-i18n="ap.v2.p">You're not a number here. We listen to what you want and make sure you leave exactly as you imagined.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🌿</div>
+        <h3 data-i18n="ap.v3.h3">Clean & Safe</h3>
+        <p data-i18n="ap.v3.p">We maintain strict hygiene standards. All tools are sterilized for every client — your safety is our priority.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">💛</div>
+        <h3 data-i18n="ap.v4.h3">Community Rooted</h3>
+        <p data-i18n="ap.v4.p">Upper Marlboro is our home. We're proud to serve our community and grateful for every client who walks through our door.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🎨</div>
+        <h3 data-i18n="ap.v5.h3">Creative Excellence</h3>
+        <p data-i18n="ap.v5.p">Our nail artists stay up-to-date with the latest trends so we can bring your Pinterest board to life.</p>
+      </div>
+      <div class="value-card">
+        <div class="value-icon">🕐</div>
+        <h3 data-i18n="ap.v6.h3">Your Time Matters</h3>
+        <p data-i18n="ap.v6.p">We respect your schedule. Walk-ins are welcome, and we do our best to keep wait times reasonable.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <p class="section-label" style="color:rgba(255,255,255,0.6); text-align:center;" data-i18n="ap.cta.label">Come Say Hello</p>
+    <h2 data-i18n="ap.cta.h2">We'd Love to Meet You</h2>
+    <p data-i18n="ap.cta.p">Walk in anytime or give us a call to plan your visit.</p>
+    <a href="tel:+13014990940" class="btn btn-white">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      (301) 499-0940
+    </a>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Ann's Nails Salon</h3>
+        <p data-i18n="footer.desc">Your trusted nail salon in Upper Marlboro, MD.<br>Professional care, beautiful results.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.nav.h4">Navigate</h4>
+        <ul>
+          <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+          <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+          <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.hours.h4">Hours</h4>
+        <div class="footer-hours">
+          <p data-i18n="footer.mon-fri">Mon–Fri: 10:00 AM – 7:00 PM</p>
+          <p data-i18n="footer.sat">Saturday: 9:00 AM – 7:00 PM</p>
+          <p data-i18n="footer.sun">Sunday: 10:00 AM – 5:00 PM</p>
+          <p style="margin-top:12px; color: var(--gold);">📍 10676 Campus Way S<br>Upper Marlboro, MD 20774</p>
+          <p style="margin-top:8px;"><a href="tel:+13014990940" style="color:var(--gold);">📞 (301) 499-0940</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer.copy">© 2025 Ann's Nails Salon · All rights reserved.</p>
+      <p>10676 Campus Way S, Upper Marlboro, MD 20774</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>

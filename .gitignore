@@ -1,0 +1,8 @@
+# Development screenshots & previews (root level only)
+/*.png
+/*.jpg
+color-preview.html
+typography-preview.html
+
+# Playwright test artifacts
+.playwright-mcp/

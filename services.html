@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ann's Nails Salon services and pricing — manicure, pedicure, acrylic, gel, nail art, waxing, lash extensions in Upper Marlboro, MD.">
+  <title>Services & Prices — Ann's Nails Salon</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="translations.js" defer></script>
+  <style>
+    .page-hero {
+      padding: 160px 0 80px;
+      background: #f3f0ea;
+      text-align: center;
+    }
+    .page-hero h1 { font-size: clamp(40px, 5vw, 64px); margin-bottom: 16px; }
+    .page-hero p { color: var(--muted); font-size: 16px; max-width: 480px; margin: 0 auto; }
+
+    .services-page { padding: 80px 0 100px; }
+
+    .service-category {
+      margin-bottom: 72px;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      margin-bottom: 32px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .category-icon { font-size: 32px; }
+
+    .category-header h2 {
+      font-size: 28px;
+    }
+
+    .price-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+    }
+
+    .price-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 18px 24px;
+      border-bottom: 1px solid var(--border);
+      border-right: 1px solid var(--border);
+      background: var(--bg);
+      transition: background 0.15s;
+    }
+    .price-item:hover { background: #fff; }
+    .price-item:nth-child(even) { border-right: none; }
+    .price-item:nth-last-child(-n+2) { border-bottom: none; }
+
+    .price-item-name {
+      font-size: 15px;
+      color: var(--text);
+    }
+
+    .price-item-price {
+      font-family: 'Playfair Display', serif;
+      font-size: 16px;
+      color: var(--gold);
+      white-space: nowrap;
+      margin-left: 16px;
+    }
+
+    .price-note {
+      margin-top: 16px;
+      font-size: 12px;
+      color: var(--muted);
+      letter-spacing: 0.5px;
+    }
+
+    .cta-strip {
+      background: var(--text);
+      border-radius: 20px;
+      padding: 48px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 40px;
+      gap: 24px;
+      flex-wrap: wrap;
+    }
+    .cta-strip h3 {
+      font-size: 26px;
+      color: var(--bg);
+    }
+    .cta-strip p {
+      color: rgba(250,250,247,0.6);
+      font-size: 14px;
+      margin-top: 6px;
+    }
+
+    @media (max-width: 700px) {
+      .price-list { grid-template-columns: 1fr; }
+      .price-item { border-right: none; }
+      .price-item:nth-last-child(-n+2) { border-bottom: 1px solid var(--border); }
+      .price-item:last-child { border-bottom: none; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Ann's Nails</a>
+    <ul class="nav-links">
+      <li><a href="index.html#services" style="color:var(--text);" data-i18n="nav.services">Services</a></li>
+      <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+      <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      <li class="mobile-call"><a href="tel:+13014990940">📞 (301) 499-0940</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="vi">VI</button>
+    </div>
+    <a href="tel:+13014990940" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      Call to Book
+    </a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <p class="section-label" data-i18n="sp.label">Transparent Pricing</p>
+    <h1 data-i18n="sp.h1">Services & Prices</h1>
+    <p data-i18n="sp.sub">Everything you need for beautiful nails and more — all in one place.</p>
+  </div>
+</div>
+
+<div class="services-page">
+  <div class="container">
+
+    <!-- Nails -->
+    <div class="service-category">
+      <div class="category-header">
+        <div class="category-icon">💅</div>
+        <h2 data-i18n="sp.cat.nails">Nails</h2>
+      </div>
+      <div class="price-list">
+        <div class="price-item"><span class="price-item-name" data-i18n="item.classic-mani">Classic Manicure</span><span class="price-item-price">from $20</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.gel-mani">Gel Manicure</span><span class="price-item-price">from $35</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.french-mani">French Manicure</span><span class="price-item-price">from $25</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.mens-mani">Men's Manicure</span><span class="price-item-price">from $20</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.acrylic-full">Acrylic Full Set</span><span class="price-item-price">from $45</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.acrylic-fill">Acrylic Fill</span><span class="price-item-price">from $30</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.gel-ext">Gel Extensions</span><span class="price-item-price">from $50</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.dip">Nail Powder (Dip)</span><span class="price-item-price">from $40</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.nail-art">Nail Art (per nail)</span><span class="price-item-price">from $3</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.decals">Nail Decals / Stickers</span><span class="price-item-price">from $5</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.design">Nail Design</span><span class="price-item-price">from $10</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.repair">Nail Repair (per nail)</span><span class="price-item-price">from $5</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.trim">Trim & File</span><span class="price-item-price">from $10</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.polish-change">Polish Change</span><span class="price-item-price">from $10</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.polish-remove">Polish Removal</span><span class="price-item-price">from $8</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.sculptured">Sculptured Nails</span><span class="price-item-price">from $55</span></div>
+      </div>
+      <p class="price-note">* Prices may vary based on nail length, design complexity, and nail condition.</p>
+    </div>
+
+    <!-- Pedicure -->
+    <div class="service-category">
+      <div class="category-header">
+        <div class="category-icon">🦶</div>
+        <h2 data-i18n="sp.cat.pedi">Pedicure</h2>
+      </div>
+      <div class="price-list">
+        <div class="price-item"><span class="price-item-name" data-i18n="item.classic-pedi">Classic Pedicure</span><span class="price-item-price">from $30</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.gel-pedi">Gel Pedicure</span><span class="price-item-price">from $45</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.callus">Callus Removal</span><span class="price-item-price">from $10</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.deluxe-pedi">Deluxe Pedicure</span><span class="price-item-price">from $50</span></div>
+      </div>
+    </div>
+
+    <!-- Beauty -->
+    <div class="service-category">
+      <div class="category-header">
+        <div class="category-icon">✨</div>
+        <h2 data-i18n="sp.cat.beauty">Beauty & Waxing</h2>
+      </div>
+      <div class="price-list">
+        <div class="price-item"><span class="price-item-name" data-i18n="item.brazilian">Brazilian Waxing</span><span class="price-item-price">from $55</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.full-leg">Full Leg Waxing</span><span class="price-item-price">from $50</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.half-leg">Half Leg Waxing</span><span class="price-item-price">from $30</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.eyebrow">Eyebrow Waxing</span><span class="price-item-price">from $12</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.lash-classic">Lash Extensions — Classic</span><span class="price-item-price">from $80</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.lash-volume">Lash Extensions — Volume</span><span class="price-item-price">from $110</span></div>
+      </div>
+    </div>
+
+    <!-- Wellness -->
+    <div class="service-category">
+      <div class="category-header">
+        <div class="category-icon">🌿</div>
+        <h2 data-i18n="sp.cat.well">Wellness</h2>
+      </div>
+      <div class="price-list">
+        <div class="price-item"><span class="price-item-name" data-i18n="item.relax-pkg">Relaxation Package (Mani + Pedi)</span><span class="price-item-price">from $55</span></div>
+        <div class="price-item"><span class="price-item-name" data-i18n="item.spa-pkg">Spa Package (Gel Mani + Deluxe Pedi)</span><span class="price-item-price">from $85</span></div>
+      </div>
+      <p class="price-note">* Wellness packages include complimentary hand & foot massage.</p>
+    </div>
+
+    <!-- CTA -->
+    <div class="cta-strip">
+      <div>
+        <h3 data-i18n="sp.cta.h3">Ready to Book?</h3>
+        <p data-i18n="sp.cta.p">Questions about a service? Just give us a call — we're happy to help.</p>
+      </div>
+      <a href="tel:+13014990940" class="btn btn-primary" style="font-size:15px; padding:16px 32px;">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        (301) 499-0940
+      </a>
+    </div>
+
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Ann's Nails Salon</h3>
+        <p data-i18n="footer.desc">Your trusted nail salon in Upper Marlboro, MD.<br>Professional care, beautiful results.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.nav.h4">Navigate</h4>
+        <ul>
+          <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+          <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+          <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.hours.h4">Hours</h4>
+        <div class="footer-hours">
+          <p data-i18n="footer.mon-fri">Mon–Fri: 10:00 AM – 7:00 PM</p>
+          <p data-i18n="footer.sat">Saturday: 9:00 AM – 7:00 PM</p>
+          <p data-i18n="footer.sun">Sunday: 10:00 AM – 5:00 PM</p>
+          <p style="margin-top:12px; color: var(--gold);">📍 10676 Campus Way S<br>Upper Marlboro, MD 20774</p>
+          <p style="margin-top:8px;"><a href="tel:+13014990940" style="color:var(--gold);">📞 (301) 499-0940</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer.copy">© 2025 Ann's Nails Salon · All rights reserved.</p>
+      <p>10676 Campus Way S, Upper Marlboro, MD 20774</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('open');
+    });
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Ann's Nails Salon — Professional nail care in Upper Marlboro, MD. Manicure, pedicure, gel, acrylic, nail art & more. Walk-ins welcome.">
+  <title>Ann's Nails Salon — Upper Marlboro, MD</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="translations.js" defer></script>
+</head>
+<body>
+
+<!-- ── Navigation ── -->
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Ann's Nails</a>
+    <ul class="nav-links">
+      <li><a href="#services" data-i18n="nav.services">Services</a></li>
+      <li><a href="#gallery" data-i18n="nav.gallery">Gallery</a></li>
+      <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+      <li class="mobile-call"><a href="tel:+13014990940">📞 (301) 499-0940</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="vi">VI</button>
+    </div>
+    <a href="tel:+13014990940" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      Call to Book
+    </a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ── Hero ── -->
+<section class="hero" id="home">
+  <div class="hero-content">
+    <p class="hero-eyebrow" data-i18n="hero.eyebrow">Upper Marlboro, Maryland</p>
+    <h1 class="hero-title" data-i18n="hero.title">
+      Beautiful Nails,<br>
+      <em>Flawless Results.</em>
+    </h1>
+    <p class="hero-sub" data-i18n="hero.sub">
+      Ann's Nails Salon has been the go-to nail destination in Upper Marlboro for years. Expert care, stunning designs, and a relaxing experience — every visit.
+    </p>
+    <div class="hero-actions">
+      <a href="tel:+13014990940" class="btn btn-primary">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+        (301) 499-0940
+      </a>
+      <a href="#gallery" class="btn btn-outline" data-i18n="hero.gallery">View Our Work</a>
+    </div>
+    <p class="hero-note" style="margin-top: 20px;" data-i18n="hero.hours">Mon–Fri 10–7 · Sat 9–7 · Sun 10–5 · Walk-ins welcome</p>
+  </div>
+  <div class="hero-image">
+    <img src="images/nail-2.png" alt="Ann's Nails Salon — Nail Art">
+  </div>
+</section>
+
+<!-- ── Services Preview ── -->
+<section class="services-preview" id="services">
+  <div class="container">
+    <div class="services-header">
+      <div>
+        <p class="section-label" data-i18n="idx.svc.label">What We Offer</p>
+        <h2 data-i18n="idx.svc.h2">Services for Every Style</h2>
+      </div>
+      <a href="services.html" class="btn btn-outline" data-i18n="idx.svc.link">All Services & Prices →</a>
+    </div>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-icon">💅</div>
+        <h3 data-i18n="svc.mani.name">Manicure</h3>
+        <p data-i18n="svc.mani.desc">Classic, gel, French, and specialty manicures tailored to your taste.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🦶</div>
+        <h3 data-i18n="svc.pedi.name">Pedicure</h3>
+        <p data-i18n="svc.pedi.desc">Relaxing pedicures with exfoliation, massage, and flawless polish.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">✨</div>
+        <h3 data-i18n="svc.acrylic.name">Acrylic & Gel Nails</h3>
+        <p data-i18n="svc.acrylic.desc">Long-lasting acrylic extensions and gel overlays for any length.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🎨</div>
+        <h3 data-i18n="svc.art.name">Nail Art</h3>
+        <p data-i18n="svc.art.desc">From minimalist designs to intricate nail art — we bring your ideas to life.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">🌿</div>
+        <h3 data-i18n="svc.wax.name">Waxing</h3>
+        <p data-i18n="svc.wax.desc">Brazilian waxing and full-body hair removal by experienced technicians.</p>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">👁️</div>
+        <h3 data-i18n="svc.lash.name">Lash Extensions</h3>
+        <p data-i18n="svc.lash.desc">Natural to dramatic lash extensions for every occasion.</p>
+      </div>
+    </div>
+    <div class="services-footer">
+      <a href="services.html" class="btn btn-primary" data-i18n="idx.svc.all">See All Services & Prices</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── Gallery Preview ── -->
+<section id="gallery">
+  <div class="container">
+    <div class="gallery-header">
+      <div>
+        <p class="section-label" data-i18n="idx.gal.label">Our Work</p>
+        <h2 data-i18n="idx.gal.h2">Crafted with Precision</h2>
+      </div>
+      <a href="gallery.html" class="btn btn-outline" data-i18n="idx.gal.link">Full Gallery →</a>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="images/nail-1.png" alt="Nail Art Design">
+      </div>
+      <div class="gallery-item">
+        <img src="images/nail-3.png" alt="Nail Art Design">
+      </div>
+      <div class="gallery-item">
+        <img src="images/nail-4.png" alt="Nail Art Design">
+      </div>
+      <div class="gallery-item">
+        <img src="images/nail-5.png" alt="Nail Art Design">
+      </div>
+      <div class="gallery-item">
+        <img src="images/nail-2.png" alt="Nail Art Design">
+      </div>
+    </div>
+    <div class="gallery-footer">
+      <a href="gallery.html" class="btn btn-outline" data-i18n="idx.gal.all">View All Photos</a>
+    </div>
+  </div>
+</section>
+
+<!-- ── About Teaser ── -->
+<section class="about-section">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-image">
+        <img src="images/nail-4.png" alt="Ann's Nails Salon">
+      </div>
+      <div class="about-content">
+        <p class="section-label" data-i18n="idx.about.label">About Us</p>
+        <h2 data-i18n="idx.about.h2">Years of Passion, <br>One Perfect Nail at a Time</h2>
+        <p data-i18n="idx.about.p1">
+          Ann's Nails Salon has been a trusted name in Upper Marlboro for years. We combine skilled craftsmanship with a warm, welcoming atmosphere — so every visit feels like a treat.
+        </p>
+        <p data-i18n="idx.about.p2">
+          From classic manicures to intricate nail art, our experienced team is dedicated to making you look and feel your best.
+        </p>
+        <div class="about-stats">
+          <div>
+            <div class="stat-number">10+</div>
+            <div class="stat-label" data-i18n="idx.about.s1l">Years Experience</div>
+          </div>
+          <div>
+            <div class="stat-number">5k+</div>
+            <div class="stat-label" data-i18n="idx.about.s2l">Happy Clients</div>
+          </div>
+          <div>
+            <div class="stat-number">20+</div>
+            <div class="stat-label" data-i18n="idx.about.s3l">Services Offered</div>
+          </div>
+        </div>
+        <a href="about.html" class="btn btn-primary" data-i18n="idx.about.link">Our Story →</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── Reviews ── -->
+<section class="reviews-section">
+  <div class="container">
+    <p class="section-label" style="text-align:center;" data-i18n="idx.rev.label">What Clients Say</p>
+    <h2 data-i18n="idx.rev.h2">Loved by the Community</h2>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Ann's is my go-to spot every time. The nail art is absolutely stunning and the staff is so friendly. I always leave feeling amazing!"</p>
+        <p class="review-author">— Jessica M.</p>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"Best pedicure I've ever had. They took their time and the result was perfect. I won't go anywhere else in Upper Marlboro."</p>
+        <p class="review-author">— Tanya R.</p>
+      </div>
+      <div class="review-card">
+        <div class="review-stars">★★★★★</div>
+        <p class="review-text">"I showed them a design from Pinterest and they recreated it perfectly. Extremely talented team, very professional and clean salon."</p>
+        <p class="review-author">— Destiny K.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── FAQ ── -->
+<section class="faq-section">
+  <div class="container">
+    <p class="section-label" data-i18n="idx.faq.label">FAQ</p>
+    <h2 data-i18n="idx.faq.h2">Frequently Asked Questions</h2>
+    <div class="faq-list">
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span data-i18n="idx.faq.q1">Do I need an appointment?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer" data-i18n="idx.faq.a1">Walk-ins are always welcome! For busy times like weekends, we recommend calling ahead to check wait times: <a href="tel:+13014990940" style="color:var(--gold);">(301) 499-0940</a>.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span data-i18n="idx.faq.q2">How do I book?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer" data-i18n="idx.faq.a2">Simply give us a call at <a href="tel:+13014990940" style="color:var(--gold);">(301) 499-0940</a> to book or check wait times. We're happy to answer any questions.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span data-i18n="idx.faq.q3">Where are you located?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer" data-i18n="idx.faq.a3">We're at 10676 Campus Way S, Upper Marlboro, MD 20774. Convenient parking is available on-site.</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span data-i18n="idx.faq.q4">What are your hours?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer" data-i18n="idx.faq.a4">Monday–Friday: 10:00 AM – 7:00 PM · Saturday: 9:00 AM – 7:00 PM · Sunday: 10:00 AM – 5:00 PM</div>
+      </div>
+
+      <div class="faq-item">
+        <div class="faq-question">
+          <span data-i18n="idx.faq.q5">Do you offer services for men?</span>
+          <span>+</span>
+        </div>
+        <div class="faq-answer" data-i18n="idx.faq.a5">Absolutely! We offer manicures for men and all other services are open to everyone. We want everyone to feel welcome.</div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ── CTA Banner ── -->
+<section class="cta-banner">
+  <div class="container">
+    <p class="section-label" style="color:rgba(255,255,255,0.6); text-align:center;" data-i18n="idx.cta.label">Ready for Beautiful Nails?</p>
+    <h2 data-i18n="idx.cta.h2">Book Your Appointment Today</h2>
+    <p data-i18n="idx.cta.p">Call us or just walk in — we'd love to see you.</p>
+    <a href="tel:+13014990940" class="btn btn-white">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      (301) 499-0940
+    </a>
+  </div>
+</section>
+
+<!-- ── Footer ── -->
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Ann's Nails Salon</h3>
+        <p data-i18n="footer.desc">Your trusted nail salon in Upper Marlboro, MD.<br>Professional care, beautiful results.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.nav.h4">Navigate</h4>
+        <ul>
+          <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+          <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+          <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.hours.h4">Hours</h4>
+        <div class="footer-hours">
+          <p data-i18n="footer.mon-fri">Mon–Fri: 10:00 AM – 7:00 PM</p>
+          <p data-i18n="footer.sat">Saturday: 9:00 AM – 7:00 PM</p>
+          <p data-i18n="footer.sun">Sunday: 10:00 AM – 5:00 PM</p>
+          <p style="margin-top:12px; color: var(--gold);">📍 10676 Campus Way S<br>Upper Marlboro, MD 20774</p>
+          <p style="margin-top:8px;"><a href="tel:+13014990940" style="color:var(--gold);">📞 (301) 499-0940</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer.copy">© 2025 Ann's Nails Salon · All rights reserved.</p>
+      <p>10676 Campus Way S, Upper Marlboro, MD 20774</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // FAQ Accordion
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Hamburger (mobile)
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('open');
+    });
+  });
+</script>
+
+</body>
+</html>

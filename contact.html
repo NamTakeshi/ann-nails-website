@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Contact Ann's Nails Salon — 10676 Campus Way S, Upper Marlboro, MD 20774. Call (301) 499-0940. Open 7 days a week.">
+  <title>Contact — Ann's Nails Salon</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="translations.js" defer></script>
+  <style>
+    .page-hero {
+      padding: 160px 0 80px;
+      background: #f3f0ea;
+      text-align: center;
+    }
+    .page-hero h1 { font-size: clamp(40px, 5vw, 64px); margin-bottom: 16px; }
+    .page-hero p { color: var(--muted); font-size: 16px; max-width: 480px; margin: 0 auto; }
+
+    .contact-page { padding: 80px 0 100px; }
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 60px;
+      align-items: start;
+    }
+
+    /* Info column */
+    .contact-info { display: flex; flex-direction: column; gap: 32px; }
+
+    .info-card {
+      display: flex;
+      gap: 20px;
+      padding: 28px;
+      background: #f3f0ea;
+      border-radius: 16px;
+      align-items: flex-start;
+    }
+
+    .info-icon {
+      font-size: 28px;
+      flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .info-card h3 {
+      font-size: 18px;
+      margin-bottom: 6px;
+    }
+
+    .info-card p, .info-card a {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.7;
+    }
+
+    .info-card a { color: var(--gold); }
+    .info-card a:hover { text-decoration: underline; }
+
+    .phone-big {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      background: var(--gold);
+      color: #fff;
+      border-radius: 16px;
+      padding: 28px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+    .phone-big:hover { background: #a07a3e; }
+
+    .phone-big .phone-icon { font-size: 32px; }
+
+    .phone-big .phone-label {
+      font-size: 11px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      opacity: 0.8;
+      margin-bottom: 4px;
+      font-family: 'Lato', sans-serif;
+    }
+
+    .phone-big .phone-number {
+      font-family: 'Playfair Display', serif;
+      font-size: 28px;
+      color: #fff;
+    }
+
+    /* Hours table */
+    .hours-table { width: 100%; }
+
+    .hours-row {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px 0;
+      border-bottom: 1px solid var(--border);
+      font-size: 14px;
+    }
+    .hours-row:last-child { border-bottom: none; }
+
+    .hours-row .day { color: var(--text); }
+    .hours-row .time { color: var(--gold); font-weight: 400; }
+    .hours-row.today .day { font-weight: 700; }
+    .hours-row.today .time { font-weight: 700; }
+
+    /* Map */
+    .map-container {
+      border-radius: 16px;
+      overflow: hidden;
+      height: 320px;
+      background: #e8e5df;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .map-container iframe {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+
+    /* Right column: map + FAQ */
+    .contact-right { display: flex; flex-direction: column; gap: 40px; }
+
+    .contact-faq h3 {
+      font-size: 24px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 900px) {
+      .contact-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="index.html" class="nav-logo">Ann's Nails</a>
+    <ul class="nav-links">
+      <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+      <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+      <li><a href="about.html" data-i18n="nav.about">About</a></li>
+      <li><a href="contact.html" style="color:var(--text);" data-i18n="nav.contact">Contact</a></li>
+      <li class="mobile-call"><a href="tel:+13014990940">📞 (301) 499-0940</a></li>
+    </ul>
+    <div class="lang-toggle">
+      <button class="lang-btn active" data-lang="en">EN</button>
+      <span class="lang-sep">|</span>
+      <button class="lang-btn" data-lang="vi">VI</button>
+    </div>
+    <a href="tel:+13014990940" class="nav-cta">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor"><path d="M6.6 10.8c1.4 2.8 3.8 5.1 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1-9.4 0-17-7.6-17-17 0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1L6.6 10.8z"/></svg>
+      Call to Book
+    </a>
+    <button class="nav-hamburger" id="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+  </div>
+</nav>
+
+<div class="page-hero">
+  <div class="container">
+    <p class="section-label" data-i18n="cp.label">Get In Touch</p>
+    <h1 data-i18n="cp.h1">Find Us</h1>
+    <p data-i18n="cp.sub">We're conveniently located in Upper Marlboro. Walk-ins always welcome.</p>
+  </div>
+</div>
+
+<div class="contact-page">
+  <div class="container">
+    <div class="contact-grid">
+
+      <!-- Left: Info -->
+      <div class="contact-info">
+
+        <a href="tel:+13014990940" class="phone-big">
+          <div class="phone-icon">📞</div>
+          <div>
+            <div class="phone-label" data-i18n="cp.phone.label">Call to Book or Ask a Question</div>
+            <div class="phone-number">(301) 499-0940</div>
+          </div>
+        </a>
+
+        <div class="info-card">
+          <div class="info-icon">📍</div>
+          <div>
+            <h3 data-i18n="cp.loc.h3">Location</h3>
+            <p>10676 Campus Way S<br>Upper Marlboro, MD 20774</p>
+            <a href="https://maps.google.com/?q=10676+Campus+Way+S,+Upper+Marlboro,+MD+20774" target="_blank" rel="noopener">Get Directions →</a>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">🕐</div>
+          <div>
+            <h3 data-i18n="cp.hours.h3">Opening Hours</h3>
+            <table class="hours-table">
+              <tr class="hours-row"><td class="day">Monday</td><td class="time">10:00 AM – 7:00 PM</td></tr>
+              <tr class="hours-row"><td class="day">Tuesday</td><td class="time">10:00 AM – 7:00 PM</td></tr>
+              <tr class="hours-row"><td class="day">Wednesday</td><td class="time">10:00 AM – 7:00 PM</td></tr>
+              <tr class="hours-row"><td class="day">Thursday</td><td class="time">10:00 AM – 7:00 PM</td></tr>
+              <tr class="hours-row"><td class="day">Friday</td><td class="time">10:00 AM – 7:00 PM</td></tr>
+              <tr class="hours-row"><td class="day">Saturday</td><td class="time">9:00 AM – 7:00 PM</td></tr>
+              <tr class="hours-row"><td class="day">Sunday</td><td class="time">10:00 AM – 5:00 PM</td></tr>
+            </table>
+          </div>
+        </div>
+
+        <div class="info-card">
+          <div class="info-icon">ℹ️</div>
+          <div>
+            <h3 data-i18n="cp.info.h3">Good to Know</h3>
+            <p data-i18n="cp.info.p">Walk-ins are welcome anytime. For weekend visits we recommend calling ahead to check wait times. On-site parking available.</p>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right: Map + FAQ -->
+      <div class="contact-right">
+
+        <div class="map-container">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3110.5!2d-76.7947!3d38.8334!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b7b0f3b3f3f3f3%3A0x1!2s10676+Campus+Way+S%2C+Upper+Marlboro%2C+MD+20774!5e0!3m2!1sen!2sus!4v1"
+            allowfullscreen=""
+            loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Ann's Nails Salon location">
+          </iframe>
+        </div>
+
+        <div class="contact-faq">
+          <h3 data-i18n="cp.faq.h3">Quick Answers</h3>
+          <div class="faq-list">
+            <div class="faq-item">
+              <div class="faq-question"><span data-i18n="cp.faq.q1">Do I need an appointment?</span><span>+</span></div>
+              <div class="faq-answer" data-i18n="cp.faq.a1">No appointment needed — walk right in! For weekends, calling ahead helps us prepare for you.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question"><span data-i18n="cp.faq.q2">How do I know wait times?</span><span>+</span></div>
+              <div class="faq-answer" data-i18n="cp.faq.a2">Give us a quick call at <a href="tel:+13014990940" style="color:var(--gold)">(301) 499-0940</a> and we'll let you know the current wait.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question"><span data-i18n="cp.faq.q3">Is parking available?</span><span>+</span></div>
+              <div class="faq-answer" data-i18n="cp.faq.a3">Yes, free on-site parking is available right in front of the salon.</div>
+            </div>
+            <div class="faq-item">
+              <div class="faq-question"><span data-i18n="cp.faq.q4">What payment methods do you accept?</span><span>+</span></div>
+              <div class="faq-answer" data-i18n="cp.faq.a4">We accept cash, all major credit/debit cards, and Zelle.</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <h3>Ann's Nails Salon</h3>
+        <p data-i18n="footer.desc">Your trusted nail salon in Upper Marlboro, MD.<br>Professional care, beautiful results.</p>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.nav.h4">Navigate</h4>
+        <ul>
+          <li><a href="services.html" data-i18n="nav.services">Services</a></li>
+          <li><a href="gallery.html" data-i18n="nav.gallery">Gallery</a></li>
+          <li><a href="about.html" data-i18n="nav.about">About Us</a></li>
+          <li><a href="contact.html" data-i18n="nav.contact">Contact</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4 data-i18n="footer.hours.h4">Hours</h4>
+        <div class="footer-hours">
+          <p data-i18n="footer.mon-fri">Mon–Fri: 10:00 AM – 7:00 PM</p>
+          <p data-i18n="footer.sat">Saturday: 9:00 AM – 7:00 PM</p>
+          <p data-i18n="footer.sun">Sunday: 10:00 AM – 5:00 PM</p>
+          <p style="margin-top:12px; color: var(--gold);">📍 10676 Campus Way S<br>Upper Marlboro, MD 20774</p>
+          <p style="margin-top:8px;"><a href="tel:+13014990940" style="color:var(--gold);">📞 (301) 499-0940</a></p>
+        </div>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p data-i18n="footer.copy">© 2025 Ann's Nails Salon · All rights reserved.</p>
+      <p>10676 Campus Way S, Upper Marlboro, MD 20774</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.querySelector('.nav-links');
+  hamburger.addEventListener('click', () => {
+    navLinks.classList.toggle('open');
+    hamburger.classList.toggle('open');
+  });
+  navLinks.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => {
+      navLinks.classList.remove('open');
+      hamburger.classList.remove('open');
+    });
+  });
+
+  document.querySelectorAll('.faq-question').forEach(q => {
+    q.addEventListener('click', () => {
+      const item = q.parentElement;
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // Highlight today's hours
+  const days = ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+  const today = days[new Date().getDay()];
+  document.querySelectorAll('.hours-row .day').forEach(d => {
+    if (d.textContent === today) d.closest('.hours-row').classList.add('today');
+  });
+</script>
+</body>
+</html>
