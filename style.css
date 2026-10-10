@@ -1,5 +1,5 @@
 /* ── Fonts ── */
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Lato:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400&family=Be+Vietnam+Pro:wght@300;400;700&display=swap');
 
 /* ── Reset & Base ── */
 *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
@@ -18,7 +18,7 @@ html { scroll-behavior: smooth; }
 body {
   background: var(--bg);
   color: var(--text);
-  font-family: 'Lato', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-weight: 300;
   font-size: 16px;
   line-height: 1.6;
@@ -44,7 +44,7 @@ img { display: block; width: 100%; }
 section { padding: 100px 0; }
 
 .section-label {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 11px;
   letter-spacing: 3px;
   text-transform: uppercase;
@@ -59,7 +59,7 @@ section { padding: 100px 0; }
   gap: 8px;
   padding: 14px 28px;
   border-radius: 100px;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 13px;
   font-weight: 400;
   letter-spacing: 1px;
@@ -176,7 +176,7 @@ nav {
   background: none;
   border: none;
   cursor: pointer;
-  font-family: 'Lato', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 11px;
   letter-spacing: 1.5px;
   font-weight: 400;
@@ -493,7 +493,7 @@ nav {
   gap: 16px;
 }
 
-.faq-question span:last-child { color: var(--gold); font-size: 20px; font-family: 'Lato', sans-serif; transition: transform 0.3s; }
+.faq-question span:last-child { color: var(--gold); font-size: 20px; font-family: 'Be Vietnam Pro', sans-serif; transition: transform 0.3s; }
 
 .faq-answer {
   display: none;
@@ -556,7 +556,7 @@ footer {
 .footer-brand p { font-size: 13px; line-height: 1.7; }
 
 .footer-col h4 {
-  font-family: 'Lato', sans-serif;
+  font-family: 'Be Vietnam Pro', sans-serif;
   font-size: 11px;
   letter-spacing: 2px;
   text-transform: uppercase;
