@@ -40,13 +40,35 @@ async function loadSite() {
       if (footerCopy) footerCopy.textContent = `© ${new Date().getFullYear()} ${settings.businessName || ''} · All rights reserved.`;
 
       if (settings.phone) {
-        document.getElementById('contact-phone').innerHTML = `📞 <a href="tel:${settings.phone}">${settings.phone}</a>`;
+        const phoneDigits = settings.phone.replace(/\D/g, '');
+        const telHref = `tel:+${phoneDigits}`;
+        // Update all tel: links on the page
+        document.querySelectorAll('a[href^="tel:"]').forEach(link => {
+          link.href = telHref;
+          // Replace bare phone-number text nodes (not SVG, not "Call to Book" text)
+          link.childNodes.forEach(node => {
+            if (node.nodeType === Node.TEXT_NODE && /[\d\s().+-]{7,}/.test(node.textContent.trim())) {
+              node.textContent = settings.phone;
+            }
+          });
+        });
+        // Update .phone-number display elements (e.g. contact page big button)
+        document.querySelectorAll('.phone-number').forEach(el => {
+          el.textContent = settings.phone;
+        });
+        // Legacy fallback ID
+        const contactPhone = document.getElementById('contact-phone');
+        if (contactPhone) {
+          contactPhone.innerHTML = `📞 <a href="${telHref}">${settings.phone}</a>`;
+        }
       }
       if (settings.email) {
-        document.getElementById('contact-email').innerHTML = `✉️ <a href="mailto:${settings.email}">${settings.email}</a>`;
+        const contactEmail = document.getElementById('contact-email');
+        if (contactEmail) contactEmail.innerHTML = `✉️ <a href="mailto:${settings.email}">${settings.email}</a>`;
       }
       if (settings.address) {
-        document.getElementById('contact-address').textContent = `📍 ${settings.address}`;
+        const contactAddress = document.getElementById('contact-address');
+        if (contactAddress) contactAddress.textContent = `📍 ${settings.address}`;
       }
     }
 
