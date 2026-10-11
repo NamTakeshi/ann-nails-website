@@ -135,6 +135,7 @@ async function loadSite() {
     }
 
     // ── Galerie ──
+    console.log('Gallery raw:', JSON.stringify(gallery));
     if (gallery?.length) {
       const validPhotos = gallery.filter(item => item.image?.asset?._ref);
       const masonryGrid = document.getElementById('masonry-grid');
