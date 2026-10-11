@@ -75,54 +75,62 @@ async function loadSite() {
 
     // ── Hero ──
     if (hero) {
-      document.getElementById('hero-headline').textContent = hero.headline || '';
-      document.getElementById('hero-subtext').textContent  = hero.subtext  || '';
-
-      const cta = document.getElementById('hero-cta');
-      if (hero.ctaText) cta.textContent = hero.ctaText;
-      if (hero.ctaLink) cta.href = hero.ctaLink;
-
-      if (hero.bgImage?.asset?._ref) {
-        const url = imageUrl(hero.bgImage.asset._ref);
-        document.getElementById('hero-bg').style.backgroundImage = `url(${url})`;
+      const heroHeadline = document.getElementById('hero-headline');
+      const heroSubtext = document.getElementById('hero-subtext');
+      const heroCta = document.getElementById('hero-cta');
+      const heroBg = document.getElementById('hero-bg');
+      if (heroHeadline) heroHeadline.textContent = hero.headline || '';
+      if (heroSubtext) heroSubtext.textContent = hero.subtext || '';
+      if (heroCta) {
+        if (hero.ctaText) heroCta.textContent = hero.ctaText;
+        if (hero.ctaLink) heroCta.href = hero.ctaLink;
+      }
+      if (heroBg && hero.bgImage?.asset?._ref) {
+        heroBg.style.backgroundImage = `url(${imageUrl(hero.bgImage.asset._ref)})`;
       }
     }
 
     // ── Leistungen ──
     const grid = document.getElementById('services-grid');
-    grid.innerHTML = '';
-    if (services?.length) {
-      services.forEach(s => {
-        const card = document.createElement('div');
-        card.className = 'service-card';
+    if (grid) {
+      grid.innerHTML = '';
+      if (services?.length) {
+        services.forEach(s => {
+          const card = document.createElement('div');
+          card.className = 'service-card';
 
-        const imgHtml = s.image?.asset?._ref
-          ? `<img src="${imageUrl(s.image.asset._ref)}" alt="${s.name}" loading="lazy">`
-          : '';
+          const imgHtml = s.image?.asset?._ref
+            ? `<img src="${imageUrl(s.image.asset._ref)}" alt="${s.name}" loading="lazy">`
+            : '';
 
-        card.innerHTML = `
-          ${imgHtml}
-          <div class="service-card-body">
-            <h3>${s.name || ''}</h3>
-            <p>${s.description || ''}</p>
-            ${s.price ? `<span class="service-price">${s.price}</span>` : ''}
-          </div>`;
-        grid.appendChild(card);
-      });
-    } else {
-      grid.innerHTML = '<p style="color:var(--text-muted)">Noch keine Leistungen eingetragen.</p>';
+          card.innerHTML = `
+            ${imgHtml}
+            <div class="service-card-body">
+              <h3>${s.name || ''}</h3>
+              <p>${s.description || ''}</p>
+              ${s.price ? `<span class="service-price">${s.price}</span>` : ''}
+            </div>`;
+          grid.appendChild(card);
+        });
+      } else {
+        grid.innerHTML = '<p style="color:var(--text-muted)">Noch keine Leistungen eingetragen.</p>';
+      }
     }
 
     // ── Über uns ──
     if (about) {
-      document.getElementById('about-headline').textContent = about.headline || '';
-      document.getElementById('about-text').textContent     = about.text     || '';
+      const aboutHeadline = document.getElementById('about-headline');
+      const aboutText = document.getElementById('about-text');
+      if (aboutHeadline) aboutHeadline.textContent = about.headline || '';
+      if (aboutText) aboutText.textContent = about.text || '';
 
       const photoEl = document.getElementById('about-photo');
-      if (about.photo?.asset?._ref) {
-        photoEl.innerHTML = `<img src="${imageUrl(about.photo.asset._ref)}" alt="${about.headline || ''}">`;
-      } else {
-        photoEl.innerHTML = '<div class="placeholder"></div>';
+      if (photoEl) {
+        if (about.photo?.asset?._ref) {
+          photoEl.innerHTML = `<img src="${imageUrl(about.photo.asset._ref)}" alt="${about.headline || ''}">`;
+        } else {
+          photoEl.innerHTML = '<div class="placeholder"></div>';
+        }
       }
     }
 
