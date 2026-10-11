@@ -22,11 +22,12 @@ function imageUrl(ref) {
 async function loadSite() {
   try {
     // Alle Daten in einer Anfrage
-    const [settings, hero, services, about] = await Promise.all([
+    const [settings, hero, services, about, gallery] = await Promise.all([
       query(`*[_type == "siteSettings"][0]`),
       query(`*[_type == "hero"][0]`),
       query(`*[_type == "service"] | order(order asc)`),
       query(`*[_type == "about"][0]`),
+      query(`*[_type == "gallery"] | order(order asc)`),
     ]);
 
     // ── Allgemeine Infos ──
@@ -122,6 +123,27 @@ async function loadSite() {
         photoEl.innerHTML = `<img src="${imageUrl(about.photo.asset._ref)}" alt="${about.headline || ''}">`;
       } else {
         photoEl.innerHTML = '<div class="placeholder"></div>';
+      }
+    }
+
+    // ── Galerie ──
+    if (gallery?.length) {
+      // Galerie-Seite (masonry-grid)
+      const masonryGrid = document.getElementById('masonry-grid');
+      if (masonryGrid) {
+        masonryGrid.innerHTML = gallery.map(item => `
+          <div class="masonry-item">
+            <img src="${imageUrl(item.image.asset._ref)}" alt="${item.caption || 'Galerie'}" loading="lazy">
+            ${item.caption ? `<div class="overlay"><span class="tag">${item.caption}</span></div>` : ''}
+          </div>`).join('');
+      }
+      // Startseite (gallery-grid, max. 5 Bilder)
+      const galleryGrid = document.getElementById('gallery-grid');
+      if (galleryGrid) {
+        galleryGrid.innerHTML = gallery.slice(0, 5).map(item => `
+          <div class="gallery-item">
+            <img src="${imageUrl(item.image.asset._ref)}" alt="${item.caption || 'Galerie'}" loading="lazy">
+          </div>`).join('');
       }
     }
 
