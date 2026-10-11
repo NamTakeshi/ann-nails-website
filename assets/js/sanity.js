@@ -136,19 +136,18 @@ async function loadSite() {
 
     // ── Galerie ──
     if (gallery?.length) {
-      // Galerie-Seite (masonry-grid)
+      const validPhotos = gallery.filter(item => item.image?.asset?._ref);
       const masonryGrid = document.getElementById('masonry-grid');
-      if (masonryGrid) {
-        masonryGrid.innerHTML = gallery.map(item => `
+      if (masonryGrid && validPhotos.length) {
+        masonryGrid.innerHTML = validPhotos.map(item => `
           <div class="masonry-item">
             <img src="${imageUrl(item.image.asset._ref)}" alt="${item.caption || 'Galerie'}" loading="lazy">
             ${item.caption ? `<div class="overlay"><span class="tag">${item.caption}</span></div>` : ''}
           </div>`).join('');
       }
-      // Startseite (gallery-grid, max. 5 Bilder)
       const galleryGrid = document.getElementById('gallery-grid');
-      if (galleryGrid) {
-        galleryGrid.innerHTML = gallery.slice(0, 5).map(item => `
+      if (galleryGrid && validPhotos.length) {
+        galleryGrid.innerHTML = validPhotos.slice(0, 5).map(item => `
           <div class="gallery-item">
             <img src="${imageUrl(item.image.asset._ref)}" alt="${item.caption || 'Galerie'}" loading="lazy">
           </div>`).join('');
